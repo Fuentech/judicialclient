@@ -30,7 +30,7 @@ class _BasicButtonState extends State<BasicButton> {
         borderRadius: BorderRadius.circular(30),
         child: ElevatedButton(
           style: _elevatedButtonStyle(),
-          onPressed: widget.onPressed(),
+          onPressed: (){},
           child: (widget.isLoading) ? _loading() : _contentButton(),
         ),
       ),
