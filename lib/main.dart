@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [BlocProvider(create: (_) => LoginBloc())],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/login',
+          initialRoute: '/splash',
           routes: routes,
           title: 'Judicial app',
           theme: theme),
