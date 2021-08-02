@@ -19,9 +19,7 @@ class _SplashPageState extends State<SplashPage> {
           containerChild: Stack(
             children: [
               _splashInside(),
-              Align(
-                child: _footerPage(),
-              )
+              _footerPage(),
             ],
           ),
         ),
@@ -49,16 +47,25 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Widget _footerPage() {
-    return Align(
-      child: Text(
-        'judicialapp.com.co',
-        style: TextStyle(
-          fontFamily: 'Montserrat',
-          fontStyle: FontStyle.italic,
-          color: Colors.white,
+    return Stack(
+      children: [
+        Align(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'judicialapp.com.co',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontStyle: FontStyle.italic,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 10)
+            ],
+          ),
         ),
-      ),
-      alignment: Alignment.bottomCenter,
+      ],
     );
   }
 }
