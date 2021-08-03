@@ -30,35 +30,40 @@ class BasicTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return TextField(
-      autocorrect: false,
-      autofocus: this.autofocus,
-      controller: this.textEditingController,
-      keyboardType: this.textInputType,
-      obscureText: this.isPassword,
-      style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
-      cursorHeight: 22,
-      cursorColor: judicialColors.judicialYellow(),
-      decoration: InputDecoration(
-        prefixIcon: Icon(this.iconData),
-        hintStyle: TextStyle(
-            color: judicialColors.judicialYellow(),
-            decorationColor: judicialColors.judicialYellow()),
-        contentPadding: EdgeInsets.only(top: 42, left: 15),
-        enabledBorder: _outlineInputBorder(),
-        focusedBorder: _outlineInputBorder(),
-        hintText: this.hintText,
-        labelText: this.placeHolder,
-        helperText: this.validateInput ? null : this.messageValidate
+    return Container(
+      height: 48,
+      width: 272,
+      child: TextField(
+        autocorrect: false,
+        autofocus: this.autofocus,
+        controller: this.textEditingController,
+        keyboardType: this.textInputType,
+        obscureText: this.isPassword,
+        style: TextStyle(fontWeight: FontWeight.w400, color: Colors.white, fontFamily: 'Montserrat', fontSize: 14),
+        cursorHeight: 20,
+        cursorColor: Colors.white,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(this.iconData, color: Colors.white, size: 16, ),
+          hintStyle: TextStyle(
+              color: Colors.white,
+              decorationColor: Colors.white),
+          contentPadding: EdgeInsets.only(top: 15, left: 15),
+          enabledBorder: _outlineInputBorder(),
+          focusedBorder: _outlineInputBorder(),
+          hintText: this.hintText,
+          labelStyle: TextStyle(color: Colors.white),
+          helperText: this.validateInput ? null : this.messageValidate,
+        ),
+        onChanged: this.onChanged,
       ),
-      onChanged: this.onChanged,
     );
   }
 
   OutlineInputBorder _outlineInputBorder() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
-        borderSide: BorderSide(color: judicialColors.judicialYellow()),
+        borderSide: BorderSide(color: Colors.white),
         gapPadding: 10);
   }
 }
