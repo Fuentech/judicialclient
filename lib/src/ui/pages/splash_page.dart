@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+
 import 'package:judicialclient/src/ui/shared/widgets/gradients/principal_gradient.dart';
 import 'package:judicialclient/src/ui/shared/widgets/logos/logo_home.dart';
 import 'package:judicialclient/src/ui/shared/widgets/titles/judicialapp_title.dart';
@@ -12,10 +15,18 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5),
+        () => Navigator.pushReplacementNamed(context, '/security/loginpage'));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: PrincipalGradient(
+        resizeToAvoidBottomInset: false,
+          body: PrincipalGradient(
           containerChild: Stack(
             children: [
               _splashInside(),
@@ -34,13 +45,14 @@ class _SplashPageState extends State<SplashPage> {
         children: [
           FittedBox(
             child: LogoHome(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.bottomCenter, width: 148.95, height: 171.12,
             ),
           ),
           FittedBox(
-              child: JudicialappTitle(
-            alignment: Alignment.topCenter,
-          ))
+            child: JudicialappTitle(
+              alignment: Alignment.topCenter,
+            ),
+          )
         ],
       ),
     );
@@ -53,12 +65,14 @@ class _SplashPageState extends State<SplashPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'judicialapp.com.co',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontStyle: FontStyle.italic,
-                  color: Colors.white,
+              FittedBox(
+                child: Text(
+                  'judicialapp.com',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(height: 10)
